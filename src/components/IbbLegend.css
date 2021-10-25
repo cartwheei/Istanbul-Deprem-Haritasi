@@ -1,0 +1,25 @@
+.ibb{
+  background-color: #fff;
+  opacity: 85%;
+  bottom: 3vh;
+  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); */
+  font: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 0.5vw;
+  position: absolute;
+  right: 1vw;
+  z-index: 1;
+  border-style: solid;
+  border-color: black;
+  height: 25vh;
+  width: 40vw;
+}
+
+p{
+  font-size:0.9vw;
+}
+
+@media (max-width:600px) {
+  .ibb{
+    visibility: hidden;
+  }
+}

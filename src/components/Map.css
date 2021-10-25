@@ -1,0 +1,27 @@
+.map-wrapper {
+  position: relative;
+  transition: margin-left 0.5s;
+
+  height: 100%;
+}
+
+.collapse-menu-button {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+}
+
+.row > * {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.vis {
+  visibility: hidden;
+}
+
+.mapboxgl-ctrl-top-right {
+  width: 10vw;
+  height: 2vh;
+  top: 3.5vh;
+}
