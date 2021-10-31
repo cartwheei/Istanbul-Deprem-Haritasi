@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState, useRef, useCallback } from "react";
-import ReactMapGL, { Source, Layer, Popup } from "react-map-gl";
+import MapGL, { Source, Layer, Popup } from "react-map-gl";
 import { Button } from "react-bootstrap";
 import "./Map.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
@@ -13,6 +13,7 @@ function Map() {
   const data_url = "anadolu_projects.json";
 
   const anadolu_geojson_line = {
+    id: "line",
     type: "line",
     layout: {
       "line-join": "round",
@@ -29,11 +30,12 @@ function Map() {
     type: "fill",
     paint: {
       "fill-color": "black",
-      "fill-opacity": 0.2,
+      "fill-opacity": 0.5,
     },
   };
 
   const anadolu_geojson_name = {
+    id: "name",
     type: "symbol",
     layout: {
       "text-field": ["get", "adi"],
@@ -50,7 +52,7 @@ function Map() {
   };
 
   const [viewport, setViewport] = useState({
-    width: "fit",
+    width: "100vw",
     height: "100vh",
     latitude: 40.954492756949186,
     longitude: 29.266891479492188,
@@ -60,25 +62,28 @@ function Map() {
   const [hoverInfo, setHoverInfo] = useState(null);
 
   const onHover = useCallback((event) => {
-    if (event.features.length > 1) {
-      const county = event.features && event.features[0].properties;
-      setHoverInfo({
-        longitude: event.lngLat[0],
-        latitude: event.lngLat[1],
-        countyName: county && county.adi,
-      });
-    } else {
-    }
-  }, []);
+    const {
+      features,
+      srcEvent: { offsetX, offsetY },
+    } = event;
 
-  const selectedCounty = (hoverInfo && hoverInfo.countyName) || "";
+    const hoveredFeature = features && features[0];
+
+    setHoverInfo(
+      hoveredFeature
+        ? {
+            feature: hoveredFeature,
+            x: offsetX,
+            y: offsetY,
+          }
+        : null
+    );
+  }, []);
 
   const [sidebar, setSidebarState] = useState(false);
 
   const showSidebar = () => {
-    console.log("alper");
     setSidebarState(!sidebar);
-    console.log(sidebar);
   };
 
   const buttonStyleShow = {
@@ -90,14 +95,13 @@ function Map() {
   };
 
   const mapRef = useRef();
-  // console.log(mapRef, "mapref");
 
   const handleViewportChange = useCallback(
-    (newViewport) => setViewport(newViewport),
+    (newViewport) =>
+      setViewport({ newViewport: { ...newViewport, width: "fit" } }),
     []
   );
 
-  // if you are happy with Geocoder default settings, you can just use handleViewportChange directly
   const handleGeocoderViewportChange = useCallback(
     (newViewport) => {
       const geocoderDefaultOverrides = { transitionDuration: 1000 };
@@ -112,14 +116,12 @@ function Map() {
 
   return (
     <div className="map-wrapper">
-      <ReactMapGL
+      <MapGL
         {...viewport}
         ref={mapRef}
         mapboxApiAccessToken={
           "pk.eyJ1IjoiY2FydHdoZWVsIiwiYSI6ImNranp4em5rczBjN2Qyb2syOHR2eWhhcGkifQ.JVVl04Dnmq0xIKJiER_C8A"
         }
-        // onViewportChange={(nextViewport) => setViewport(nextViewport)}
-        style={{ top: 0, left: 0 }}
         onViewportChange={setViewport}
         mapStyle="mapbox://styles/cartwheel/ckulfthjs0eop17o744fi3sym"
         interactiveLayerIds={["alan"]}
@@ -131,17 +133,19 @@ function Map() {
           <Layer {...anadolu_geojson_polygon} />
         </Source>
 
-        {selectedCounty && (
-          <Popup
-            longitude={hoverInfo.longitude}
-            latitude={hoverInfo.latitude}
-            closeButton={false}
-            className="county-info"
+        {hoverInfo && (
+          <div
+            className="tooltip"
+            style={{ left: hoverInfo.x, top: hoverInfo.y }}
           >
-            {selectedCounty}
-          </Popup>
+            <div>State: {hoverInfo.feature.properties.adi}</div>
+            <div>alper emek</div>
+            <div>
+              Median Household Income:
+              {hoverInfo.feature.properties.agir_yarali}
+            </div>
+          </div>
         )}
-
         <Geocoder
           className="geocoder"
           mapRef={mapRef}
@@ -153,7 +157,7 @@ function Map() {
           placeholder="Arama"
           style={buttonStyleHidden}
         />
-      </ReactMapGL>
+      </MapGL>
       <Button
         onClick={showSidebar}
         className="collapse-menu-button"

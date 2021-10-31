@@ -6,6 +6,7 @@ import AboutMe from "./NavbarItems/AboutMe";
 import AboutMap from "./NavbarItems/AboutMap";
 import AssemblyArea from "./NavbarItems/AssemblyArea";
 import LastEarthquakes from "./NavbarItems/LastEarthquakes";
+import HelpfulLinks from "./NavbarItems/HelpfulLinks";
 
 import "./Navbar.css";
 
@@ -26,6 +27,7 @@ function Navbar({ setSidebarState, sidebar }) {
           </Button>
           <Accordion className="nav-menu-accordion" defaultActiveKey="0">
             <AboutMap />
+            <HelpfulLinks />
             <LastEarthquakes />
             <AssemblyArea />
             <AboutMe />

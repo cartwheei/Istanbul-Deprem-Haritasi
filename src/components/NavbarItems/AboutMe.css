@@ -1,0 +1,11 @@
+.aboutme-accordion-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.about-me-icon {
+  width: 4vw;
+  height: 4vh;
+  color: gray;
+}

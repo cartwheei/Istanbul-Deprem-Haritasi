@@ -13,7 +13,15 @@ function AboutMap() {
           </span>
         </Accordion.Header>
         <Accordion.Body>
-          <p>ibb</p>
+          <div>
+            <p className="ibb-map-description">
+              İstanbul Anadolu Yakası yer sarsıntı haritası İstanbul Büyükşehir
+              Belediyesi Deprem ve Zemin İnceleme Müdürlüğü'nün Anadolu Yakası
+              (2009) Mikrobölgeleme Projeleri kapsamında üretilmiştir. Çalıştay
+              sonrası üretilen harita, tekrar projekte edilerek uygulama
+              oluşturulmuştur.
+            </p>
+          </div>
         </Accordion.Body>
       </Accordion.Item>
     </div>
