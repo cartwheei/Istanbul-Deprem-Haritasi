@@ -17,7 +17,6 @@ function AboutMe() {
           </span>
         </Accordion.Header>
         <Accordion.Body className="aboutme-accordion-body">
-          <div></div>
           <Link
             title="LinkedIn"
             href="https://www.linkedin.com/in/alper-emek-362520159/"

@@ -1,9 +1,12 @@
 import { React } from "react";
-import { NavLink } from "react-router-dom";
 import * as AiIcons from "react-icons/ai";
-import { SidebarData } from "./NavbarData";
 import { IconContext } from "react-icons";
-import { Accordion } from "react-bootstrap";
+import { Accordion, Button } from "react-bootstrap";
+import AboutMe from "./NavbarItems/AboutMe";
+import AboutMap from "./NavbarItems/AboutMap";
+import AssemblyArea from "./NavbarItems/AssemblyArea";
+import LastEarthquakes from "./NavbarItems/LastEarthquakes";
+import HelpfulLinks from "./NavbarItems/HelpfulLinks";
 
 import "./Navbar.css";
 
@@ -18,30 +21,18 @@ function Navbar({ setSidebarState, sidebar }) {
   return (
     <div>
       <IconContext.Provider value={{ color: "" }}>
-        <nav className={"nav-menu active"}>
-          <ul className="nav-menu-items">
-            <li className="navbar-toggle" onClick={showSidebar}>
-              <NavLink to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
-              </NavLink>
-            </li>
-            {SidebarData.map((item, index) => {
-              return (
-                <div key={index} className={item.cName}>
-                  <Accordion defaultActiveKey="0">
-                    <Accordion.Item eventKey={index}>
-                      <Accordion.Header>
-                        <span>{item.icon}</span>
-                        <span> {item.title}</span>
-                      </Accordion.Header>
-                      <Accordion.Body>{item.title}</Accordion.Body>
-                    </Accordion.Item>
-                  </Accordion>
-                </div>
-              );
-            })}
-          </ul>
-        </nav>
+        <div className={"nav-menu active"}>
+          <Button className="navbar-toggle" onClick={showSidebar}>
+            <AiIcons.AiOutlineClose />
+          </Button>
+          <Accordion className="nav-menu-accordion" defaultActiveKey="0">
+            <AboutMap />
+            <HelpfulLinks />
+            <LastEarthquakes />
+            <AssemblyArea />
+            <AboutMe />
+          </Accordion>
+        </div>
       </IconContext.Provider>
     </div>
   );

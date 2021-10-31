@@ -7,7 +7,7 @@ import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import Geocoder from "react-map-gl-geocoder";
 import Legend from "./Legend";
 import IbbLegend from "./IbbLegend";
-import Navbar from "./Navbar2";
+import Navbar from "./Navbar";
 
 function Map() {
   const data_url = "anadolu_projects.json";
