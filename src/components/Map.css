@@ -29,14 +29,34 @@
 }
 
 .tooltip {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   margin: 8px;
   padding: 4px;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  max-width: 300px;
-  font-size: 10px;
+  max-width: 40vw;
+  font-size: 0.9em;
   z-index: 9999;
   pointer-events: none;
   opacity: 1;
+}
+
+.tooltip-properties {
+  display: flex;
+  flex-direction: row;
+}
+
+.tooltip-properties-human {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2vh;
+  justify-content: space-between;
+}
+
+.tooltip-properties-building {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
