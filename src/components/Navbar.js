@@ -19,22 +19,20 @@ function Navbar({ setSidebarState, sidebar }) {
     return null;
   }
   return (
-    <div>
-      <IconContext.Provider value={{ color: "" }}>
-        <div className={"nav-menu active"}>
-          <Button className="navbar-toggle" onClick={showSidebar}>
-            <AiIcons.AiOutlineClose />
-          </Button>
-          <Accordion className="nav-menu-accordion" defaultActiveKey="0">
-            <AboutMap />
-            <HelpfulLinks />
-            <LastEarthquakes />
-            <AssemblyArea />
-            <AboutMe />
-          </Accordion>
-        </div>
-      </IconContext.Provider>
-    </div>
+    <IconContext.Provider value={{ color: "" }}>
+      <div className={"nav-menu active"}>
+        <Button className="navbar-toggle" onClick={showSidebar}>
+          <AiIcons.AiOutlineClose />
+        </Button>
+        <Accordion className="nav-menu-accordion" defaultActiveKey="0">
+          <AboutMap />
+          <HelpfulLinks />
+          <LastEarthquakes />
+          <AssemblyArea />
+          <AboutMe />
+        </Accordion>
+      </div>
+    </IconContext.Provider>
   );
 }
 

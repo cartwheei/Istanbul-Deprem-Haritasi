@@ -8,6 +8,7 @@ import Geocoder from "react-map-gl-geocoder";
 import Legend from "./Legend";
 import IbbLegend from "./IbbLegend";
 import Navbar from "./Navbar";
+import * as GiIcons from "react-icons/gi";
 
 function Map() {
   const data_url = "anadolu_projects.json";
@@ -28,6 +29,8 @@ function Map() {
   const anadolu_geojson_polygon = {
     id: "alan",
     type: "fill",
+
+    maxzoom: 12,
     paint: {
       "fill-color": "black",
       "fill-opacity": 0.1,
@@ -37,6 +40,7 @@ function Map() {
   const anadolu_geojson_name = {
     id: "name",
     type: "symbol",
+    maxzoom: 14,
     layout: {
       "text-field": ["get", "adi"],
       "text-radial-offset": 0.5,
@@ -198,12 +202,16 @@ function Map() {
           style={buttonStyleHidden}
         />
       </MapGL>
+
       <Button
         onClick={showSidebar}
         className="collapse-menu-button"
         style={sidebar ? buttonStyleHidden : buttonStyleShow}
       >
-        Menu
+        <span className="collapse-menu-button-span">
+          <GiIcons.GiHamburgerMenu className="collapse-menu-button-span-svg" />
+          Menu
+        </span>
       </Button>
       <IbbLegend />
       <Legend />

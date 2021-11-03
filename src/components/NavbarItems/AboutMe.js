@@ -8,46 +8,42 @@ import { Link } from "react-router-dom";
 
 function AboutMe() {
   return (
-    <div>
-      <Accordion.Item eventKey="4">
-        <Accordion.Header>
-          <span>
-            <IoIcons.IoIosContact />
-            Hakkımda
-          </span>
-        </Accordion.Header>
-        <Accordion.Body className="aboutme-accordion-body">
-          <Link
+    <Accordion.Item eventKey="4">
+      <Accordion.Header>
+        <span>
+          <IoIcons.IoIosContact />
+          Hakkımda
+        </span>
+      </Accordion.Header>
+      <Accordion.Body>
+        <div className="aboutme-accordion-body">
+          <a
             title="LinkedIn"
             href="https://www.linkedin.com/in/alper-emek-362520159/"
             target="_blank"
           >
             <BsIcons.BsLinkedin className="about-me-icon"></BsIcons.BsLinkedin>
-          </Link>
-          <Link
-            title="Github"
-            href="https://github.com/cartwheei"
-            target="_blank"
-          >
+          </a>
+          <a title="Github" target="_blank" href="https://github.com/cartwheei">
             <BsIcons.BsGithub className="about-me-icon"></BsIcons.BsGithub>
-          </Link>
-          <Link
+          </a>
+          <a
             title="Portfolio"
             href="https://alperemek.netlify.app/"
             target="_blank"
           >
             <Cgicons.CgWebsite className="about-me-icon"></Cgicons.CgWebsite>
-          </Link>
-          <Link
+          </a>
+          <a
             title="Twitter"
             href="https://twitter.com/AlperEmek"
             target="_blank"
           >
             <BsIcons.BsTwitter className="about-me-icon"></BsIcons.BsTwitter>
-          </Link>
-        </Accordion.Body>
-      </Accordion.Item>
-    </div>
+          </a>
+        </div>
+      </Accordion.Body>
+    </Accordion.Item>
   );
 }
 

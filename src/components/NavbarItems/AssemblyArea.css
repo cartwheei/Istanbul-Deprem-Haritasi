@@ -1,0 +1,8 @@
+.helpful-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.helpful-link-button {
+  margin-bottom: 0.75vh;
+}

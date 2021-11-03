@@ -11,6 +11,19 @@
   position: absolute;
   top: 35px;
   left: 35px;
+  width: 80px;
+  height: 50px;
+}
+
+.collapse-menu-button-span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.collapse-menu-button-span-svg {
+  height: auto;
 }
 
 .row > * {

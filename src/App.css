@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  overflow: hidden;
+}
+
+.total-app {
+  overflow: hidden;
 }
 
 .App-logo {

@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <Route path="/">
-        <div>
+        <div className="total-app">
           <Map></Map>
         </div>
       </Route>
