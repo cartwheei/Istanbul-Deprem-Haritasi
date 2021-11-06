@@ -3,7 +3,7 @@ import { Accordion } from "react-bootstrap";
 import * as IoIcons from "react-icons/io";
 import { Button } from "react-bootstrap";
 
-function LastEarthquakes() {
+function LastEarthquakes(props) {
   const [earthQuake, setEarthQuake] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,9 @@ function LastEarthquakes() {
     );
     const json = await res.json();
 
-    console.log(json);
+    setEarthQuake(json);
+
+    console.log(earthQuake);
   }
 
   return (

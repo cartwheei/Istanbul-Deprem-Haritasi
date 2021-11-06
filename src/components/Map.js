@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState, useRef, useCallback } from "react";
-import MapGL, { Source, Layer, Popup } from "react-map-gl";
+import MapGL, { Source, Layer, Marker } from "react-map-gl";
 import { Button } from "react-bootstrap";
 import "./Map.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
@@ -103,8 +103,7 @@ function Map() {
   const mapRef = useRef();
 
   const handleViewportChange = useCallback(
-    (newViewport) =>
-      setViewport({ newViewport: { ...newViewport, width: "fit" } }),
+    (newViewport) => setViewport(newViewport),
     []
   );
 
@@ -119,6 +118,18 @@ function Map() {
     },
     [handleViewportChange]
   );
+
+  const [earthQuakeBoolean, setEarthQuake] = useState("false");
+
+  const onSelectEarthquake = useCallback(({ longitude, latitude }) => {
+    setViewport({
+      longitude,
+      latitude,
+      zoom: 11,
+      // transitionInterpolator: new FlyToInterpolator({speed: 1.2}),
+      // transitionDuration: 'auto'
+    });
+  }, []);
 
   return (
     <div className="map-wrapper">
@@ -136,6 +147,16 @@ function Map() {
         width="100vw"
         height="100vh"
       >
+        {earthQuakeBoolean && (
+          <Marker
+            latitude={40.954492756949186}
+            longitude={29.266891479492188}
+            key="1"
+          >
+            {/* <div>asdasdasd</div> */}
+          </Marker>
+        )}
+
         <Source type="geojson" data={data_url}>
           <Layer {...anadolu_geojson_line} />
           <Layer {...anadolu_geojson_name} />
@@ -199,7 +220,6 @@ function Map() {
           }
           position="top-right"
           placeholder="Arama"
-          style={buttonStyleHidden}
         />
       </MapGL>
 
@@ -216,7 +236,12 @@ function Map() {
       <IbbLegend />
       <Legend />
       {sidebar && (
-        <Navbar setSidebarState={setSidebarState} sidebar={sidebar}></Navbar>
+        <Navbar
+          setSidebarState={setSidebarState}
+          sidebar={sidebar}
+          onSelectEarthquake={onSelectEarthquake}
+          earthQuakeBoolean={earthQuakeBoolean}
+        ></Navbar>
       )}
     </div>
   );

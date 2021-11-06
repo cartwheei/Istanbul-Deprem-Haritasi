@@ -10,7 +10,7 @@ import HelpfulLinks from "./NavbarItems/HelpfulLinks";
 
 import "./Navbar.css";
 
-function Navbar({ setSidebarState, sidebar }) {
+function Navbar({ setSidebarState, sidebar , onSelectEarthquake, earthQuakeBoolean }) {
   const showSidebar = () => {
     setSidebarState(!sidebar);
   };
@@ -27,7 +27,7 @@ function Navbar({ setSidebarState, sidebar }) {
         <Accordion className="nav-menu-accordion" defaultActiveKey="0">
           <AboutMap />
           <HelpfulLinks />
-          <LastEarthquakes />
+          <LastEarthquakes onSelectEarthquake={onSelectEarthquake} earthQuakeBoolean={earthQuakeBoolean}/>
           <AssemblyArea />
           <AboutMe />
         </Accordion>
