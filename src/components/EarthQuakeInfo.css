@@ -1,0 +1,18 @@
+.vl {
+  border-left: 3px solid black;
+  height: 100%;
+}
+
+tr {
+  border: solid;
+  border-width: 1px;
+}
+
+th {
+  border: solid;
+  border-width: 1px;
+}
+
+.earthQuakeInfo {
+  pointer-events: none;
+}

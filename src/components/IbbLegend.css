@@ -1,9 +1,9 @@
-.ibb{
+.ibb {
   background-color: #fff;
   opacity: 85%;
   bottom: 3vh;
   /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); */
-  font: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font: "Helvetica Neue", Arial, Helvetica, sans-serif;
   padding: 0.5vw;
   position: absolute;
   right: 1vw;
@@ -12,14 +12,18 @@
   border-color: black;
   height: 25vh;
   width: 40vw;
+  min-width: 700px;
 }
 
-p{
-  font-size:0.9vw;
+p {
+  font-size: max(0.9vw, 16px);
 }
 
-@media (max-width:600px) {
-  .ibb{
+@media (max-width: 1060px) {
+  .ibb {
     visibility: hidden;
   }
+}
+
+@media (max-width: 1750) {
 }

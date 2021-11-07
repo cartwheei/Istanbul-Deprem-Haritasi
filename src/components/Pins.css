@@ -1,0 +1,9 @@
+.pinSvg {
+  color: red;
+  width: 4vw;
+  height: 40vh;
+}
+
+.mapboxgl-marker {
+  /* pointer-events: none; */
+}
