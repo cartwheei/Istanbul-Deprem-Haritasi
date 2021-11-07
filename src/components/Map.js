@@ -23,11 +23,11 @@ import {
   anadolu_geojson_name,
   anadolu_geojson_polygon,
 } from "./LayerData";
+import { geojson } from "./anadolu_data";
 import "./Map.css";
 
 require("dotenv").config();
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOXGL_TOKEN;
-const data_url = process.env.REACT_APP_JSON;
 
 function Map() {
   const scaleControlStyle = {
@@ -129,7 +129,7 @@ function Map() {
           <Pins earthQuake={earthQuake} setEarthQuake={setEarthQuake} />
         )}
 
-        <Source type="geojson" data={data_url}>
+        <Source type="geojson" data={geojson}>
           <Layer {...anadolu_geojson_line} />
           <Layer {...anadolu_geojson_name} />
           <Layer {...anadolu_geojson_polygon} />
