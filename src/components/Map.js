@@ -37,6 +37,7 @@ const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOXGL_TOKEN;
 
 function Map() {
   const scaleControlStyle = {
+    position: "absolute",
     bottom: 36,
     left: 0,
     padding: "10px",
@@ -155,7 +156,9 @@ function Map() {
           <FullscreenControl className="fullscreenControlStyle" />
           <NavigationControl className="navStyle" />
         </div>
-        <ScaleControl style={scaleControlStyle} />
+        <div style={scaleControlStyle}>
+          <ScaleControl />
+        </div>
       </MapGL>
 
       <Button
