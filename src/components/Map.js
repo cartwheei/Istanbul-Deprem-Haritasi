@@ -1,59 +1,41 @@
 import * as React from "react";
 import { useState, useRef, useCallback } from "react";
-import MapGL, { Source, Layer, Marker } from "react-map-gl";
+import MapGL, {
+  Source,
+  Layer,
+  FlyToInterpolator,
+  NavigationControl,
+  FullscreenControl,
+  ScaleControl,
+  GeolocateControl,
+} from "react-map-gl";
 import { Button } from "react-bootstrap";
-import "./Map.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import Geocoder from "react-map-gl-geocoder";
 import Legend from "./Legend";
 import IbbLegend from "./IbbLegend";
 import Navbar from "./Navbar";
+import Pins from "./Pins";
 import * as GiIcons from "react-icons/gi";
+import HoverMenu from "./HoverMenu";
+import {
+  anadolu_geojson_line,
+  anadolu_geojson_name,
+  anadolu_geojson_polygon,
+} from "./LayerData";
+import "./Map.css";
+
+require("dotenv").config();
+const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOXGL_TOKEN;
+console.log(MAPBOX_TOKEN);
 
 function Map() {
+  const scaleControlStyle = {
+    bottom: 36,
+    left: 0,
+    padding: "10px",
+  };
   const data_url = "anadolu_projects.json";
-
-  const anadolu_geojson_line = {
-    id: "line",
-    type: "line",
-    layout: {
-      "line-join": "round",
-      "line-cap": "round",
-    },
-    paint: {
-      "line-color": "black",
-      "line-width": 2,
-    },
-  };
-
-  const anadolu_geojson_polygon = {
-    id: "alan",
-    type: "fill",
-
-    maxzoom: 12,
-    paint: {
-      "fill-color": "black",
-      "fill-opacity": 0.1,
-    },
-  };
-
-  const anadolu_geojson_name = {
-    id: "name",
-    type: "symbol",
-    maxzoom: 14,
-    layout: {
-      "text-field": ["get", "adi"],
-      "text-radial-offset": 0.5,
-      "text-justify": "auto",
-      "icon-image": ["concat", ["get", "icon"], "-15"],
-      "text-size": 14,
-    },
-    paint: {
-      "text-halo-width": 2,
-      "text-halo-color": "white",
-      "text-color": "black",
-    },
-  };
 
   const [viewport, setViewport] = useState({
     width: "100vw",
@@ -65,18 +47,19 @@ function Map() {
   });
 
   const [hoverInfo, setHoverInfo] = useState(null);
-  // console.log(hoverInfo, "info");
 
   const onHover = useCallback((event) => {
     const {
       features,
-      srcEvent: { offsetX, offsetY },
+      srcEvent: { offsetX, offsetY, target },
     } = event;
+
+    console.log(event, "event");
 
     const hoveredFeature = features && features[0];
 
     setHoverInfo(
-      hoveredFeature
+      hoveredFeature && target.className === "overlays"
         ? {
             feature: hoveredFeature,
             x: offsetX,
@@ -119,15 +102,15 @@ function Map() {
     [handleViewportChange]
   );
 
-  const [earthQuakeBoolean, setEarthQuake] = useState("false");
+  const [earthQuake, setEarthQuake] = useState({});
 
-  const onSelectEarthquake = useCallback(({ longitude, latitude }) => {
+  const onSelectEarthquake = useCallback((longitude, latitude) => {
     setViewport({
       longitude,
       latitude,
-      zoom: 11,
-      // transitionInterpolator: new FlyToInterpolator({speed: 1.2}),
-      // transitionDuration: 'auto'
+      zoom: 13,
+      transitionInterpolator: new FlyToInterpolator({ speed: 1.2 }),
+      transitionDuration: "auto",
     });
   }, []);
 
@@ -137,9 +120,7 @@ function Map() {
         {...viewport}
         className="mapboxgl-map"
         ref={mapRef}
-        mapboxApiAccessToken={
-          "pk.eyJ1IjoiY2FydHdoZWVsIiwiYSI6ImNranp4em5rczBjN2Qyb2syOHR2eWhhcGkifQ.JVVl04Dnmq0xIKJiER_C8A"
-        }
+        mapboxApiAccessToken={MAPBOX_TOKEN}
         onViewportChange={setViewport}
         mapStyle="mapbox://styles/cartwheel/ckulfthjs0eop17o744fi3sym"
         interactiveLayerIds={["alan"]}
@@ -147,14 +128,8 @@ function Map() {
         width="100vw"
         height="100vh"
       >
-        {earthQuakeBoolean && (
-          <Marker
-            latitude={40.954492756949186}
-            longitude={29.266891479492188}
-            key="1"
-          >
-            {/* <div>asdasdasd</div> */}
-          </Marker>
+        {earthQuake.id && (
+          <Pins earthQuake={earthQuake} setEarthQuake={setEarthQuake} />
         )}
 
         <Source type="geojson" data={data_url}>
@@ -163,64 +138,21 @@ function Map() {
           <Layer {...anadolu_geojson_polygon} />
         </Source>
 
-        {hoverInfo && (
-          <div
-            className="tooltip"
-            style={{ left: hoverInfo.x, top: hoverInfo.y }}
-          >
-            <div>{hoverInfo.feature.properties.adi}</div>
-            <br />
-            <div className="tooltip-properties">
-              <div className="tooltip-properties-human">
-                <div>Can Kaybı :{hoverInfo.feature.properties.can_kaybi}</div>
-                <div>
-                  Ağır Yaralı :{hoverInfo.feature.properties.agir_yarali}
-                </div>
-                <div>
-                  Hafif Yaralı :{hoverInfo.feature.properties.hafif_yarali}
-                </div>
-                <div>
-                  Hastanede Tedavi Edilecek Yaralı :
-                  {hoverInfo.feature.properties.hastane_tedavi_yarali}
-                </div>
-                <div>
-                  Barınma İhtiyacı Olacak Hane :
-                  {hoverInfo.feature.properties.barinma_ihtiyaci_hane_sayisi}
-                </div>
-              </div>
-
-              <div className="tooltip-properties-building">
-                <div>
-                  Çok Ağır Hasarlı Bina :
-                  {hoverInfo.feature.properties.bina_cok_agir_hasar}
-                </div>
-                <div>
-                  Ağır Hasarlı Bina :
-                  {hoverInfo.feature.properties.bina_agir_hasar}
-                </div>
-
-                <div>
-                  Orta Hasarlı Bina :
-                  {hoverInfo.feature.properties.bina_orta_hasar}
-                </div>
-                <div>
-                  Hafif Hasarlı Bina :
-                  {hoverInfo.feature.properties.bina_hafif_hasar}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {hoverInfo && <HoverMenu hoverInfo={hoverInfo} />}
         <Geocoder
           className="geocoder"
           mapRef={mapRef}
           onViewportChange={handleGeocoderViewportChange}
-          mapboxApiAccessToken={
-            "pk.eyJ1IjoiY2FydHdoZWVsIiwiYSI6ImNranp4em5rczBjN2Qyb2syOHR2eWhhcGkifQ.JVVl04Dnmq0xIKJiER_C8A"
-          }
+          mapboxApiAccessToken={MAPBOX_TOKEN}
           position="top-right"
           placeholder="Arama"
         />
+        <div className="map-control">
+          <GeolocateControl className="geolocateStyle" />
+          <FullscreenControl className="fullscreenControlStyle" />
+          <NavigationControl className="navStyle" />
+        </div>
+        <ScaleControl style={scaleControlStyle} />
       </MapGL>
 
       <Button
@@ -228,10 +160,7 @@ function Map() {
         className="collapse-menu-button"
         style={sidebar ? buttonStyleHidden : buttonStyleShow}
       >
-        <span className="collapse-menu-button-span">
-          <GiIcons.GiHamburgerMenu className="collapse-menu-button-span-svg" />
-          Menu
-        </span>
+        <GiIcons.GiHamburgerMenu className="collapse-menu-button-span-svg" />
       </Button>
       <IbbLegend />
       <Legend />
@@ -240,7 +169,7 @@ function Map() {
           setSidebarState={setSidebarState}
           sidebar={sidebar}
           onSelectEarthquake={onSelectEarthquake}
-          earthQuakeBoolean={earthQuakeBoolean}
+          setEarthQuake={setEarthQuake}
         ></Navbar>
       )}
     </div>
