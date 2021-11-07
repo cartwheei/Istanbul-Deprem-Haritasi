@@ -27,6 +27,7 @@ import "./Map.css";
 
 require("dotenv").config();
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOXGL_TOKEN;
+const data_url = process.env.REACT_APP_JSON;
 
 function Map() {
   const scaleControlStyle = {
@@ -34,7 +35,6 @@ function Map() {
     left: 0,
     padding: "10px",
   };
-  const data_url = process.env.REACT_APP_JSON;
 
   const [viewport, setViewport] = useState({
     width: "100vw",
