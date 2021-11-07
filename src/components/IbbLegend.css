@@ -10,17 +10,17 @@
   z-index: 1;
   border-style: solid;
   border-color: black;
-  height: 270px;
-  width: 700px;
+  height: 200px;
+  width: 600px;
 }
 
 .ibb p {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 @media (max-width: 1660px) {
   .ibb {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -32,6 +32,10 @@
 
 @media (min-width: 1660px) {
   .ibb {
-    width: 900px;
+    width: 650px;
+    height: 250px;
+  }
+  .ibb p {
+    font-size: 16px;
   }
 }
