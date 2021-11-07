@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/Istanbul-Deprem-Haritasi/static/css/main.a584aa8c.chunk.css",
-    "main.js": "/Istanbul-Deprem-Haritasi/static/js/main.81f5ec5f.chunk.js",
-    "main.js.map": "/Istanbul-Deprem-Haritasi/static/js/main.81f5ec5f.chunk.js.map",
-    "runtime-main.js": "/Istanbul-Deprem-Haritasi/static/js/runtime-main.9a4e36a8.js",
-    "runtime-main.js.map": "/Istanbul-Deprem-Haritasi/static/js/runtime-main.9a4e36a8.js.map",
+    "main.js": "/Istanbul-Deprem-Haritasi/static/js/main.a94a8b63.chunk.js",
+    "main.js.map": "/Istanbul-Deprem-Haritasi/static/js/main.a94a8b63.chunk.js.map",
+    "runtime-main.js": "/Istanbul-Deprem-Haritasi/static/js/runtime-main.89485990.js",
+    "runtime-main.js.map": "/Istanbul-Deprem-Haritasi/static/js/runtime-main.89485990.js.map",
     "static/css/2.c1e694af.chunk.css": "/Istanbul-Deprem-Haritasi/static/css/2.c1e694af.chunk.css",
-    "static/js/2.af81597f.chunk.js": "/Istanbul-Deprem-Haritasi/static/js/2.af81597f.chunk.js",
-    "static/js/2.af81597f.chunk.js.map": "/Istanbul-Deprem-Haritasi/static/js/2.af81597f.chunk.js.map",
-    "static/js/3.ee53bde7.chunk.js": "/Istanbul-Deprem-Haritasi/static/js/3.ee53bde7.chunk.js",
-    "static/js/3.ee53bde7.chunk.js.map": "/Istanbul-Deprem-Haritasi/static/js/3.ee53bde7.chunk.js.map",
+    "static/js/2.b59fd0cd.chunk.js": "/Istanbul-Deprem-Haritasi/static/js/2.b59fd0cd.chunk.js",
+    "static/js/2.b59fd0cd.chunk.js.map": "/Istanbul-Deprem-Haritasi/static/js/2.b59fd0cd.chunk.js.map",
+    "static/js/3.fa1bb4bd.chunk.js": "/Istanbul-Deprem-Haritasi/static/js/3.fa1bb4bd.chunk.js",
+    "static/js/3.fa1bb4bd.chunk.js.map": "/Istanbul-Deprem-Haritasi/static/js/3.fa1bb4bd.chunk.js.map",
     "index.html": "/Istanbul-Deprem-Haritasi/index.html",
     "static/css/2.c1e694af.chunk.css.map": "/Istanbul-Deprem-Haritasi/static/css/2.c1e694af.chunk.css.map",
     "static/css/main.a584aa8c.chunk.css.map": "/Istanbul-Deprem-Haritasi/static/css/main.a584aa8c.chunk.css.map",
-    "static/js/2.af81597f.chunk.js.LICENSE.txt": "/Istanbul-Deprem-Haritasi/static/js/2.af81597f.chunk.js.LICENSE.txt",
+    "static/js/2.b59fd0cd.chunk.js.LICENSE.txt": "/Istanbul-Deprem-Haritasi/static/js/2.b59fd0cd.chunk.js.LICENSE.txt",
     "static/js/mapbox-gl-csp-worker.187c6fe2.worker.js": "/Istanbul-Deprem-Haritasi/static/js/mapbox-gl-csp-worker.187c6fe2.worker.js",
     "static/js/mapbox-gl-csp-worker.187c6fe2.worker.js.map": "/Istanbul-Deprem-Haritasi/static/js/mapbox-gl-csp-worker.187c6fe2.worker.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.9a4e36a8.js",
+    "static/js/runtime-main.89485990.js",
     "static/css/2.c1e694af.chunk.css",
-    "static/js/2.af81597f.chunk.js",
+    "static/js/2.b59fd0cd.chunk.js",
     "static/css/main.a584aa8c.chunk.css",
-    "static/js/main.81f5ec5f.chunk.js"
+    "static/js/main.a94a8b63.chunk.js"
   ]
 }
