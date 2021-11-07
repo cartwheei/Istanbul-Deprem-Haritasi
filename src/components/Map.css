@@ -21,6 +21,13 @@
   border-color: white;
 }
 
+@media only screen and (max-width: 600px) {
+  .collapse-menu-button {
+    top: 40px;
+    left: 10px;
+  }
+}
+
 .collapse-menu-button-span {
   display: flex;
   flex-direction: row;
