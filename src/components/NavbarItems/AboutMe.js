@@ -25,10 +25,10 @@ function AboutMe() {
             <BsIcons.BsLinkedin className="about-me-icon"></BsIcons.BsLinkedin>
           </a>
           <a
-            title="Github"
+            title="Fork Me On Github!"
             target="_blank"
             rel="noreferrer"
-            href="https://github.com/cartwheei"
+            href="https://github.com/cartwheei/Istanbul-Deprem-Haritasi"
           >
             <BsIcons.BsGithub className="about-me-icon"></BsIcons.BsGithub>
           </a>
