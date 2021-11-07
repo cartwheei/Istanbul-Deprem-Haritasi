@@ -27,7 +27,6 @@ import "./Map.css";
 
 require("dotenv").config();
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOXGL_TOKEN;
-console.log(MAPBOX_TOKEN);
 
 function Map() {
   const scaleControlStyle = {
@@ -53,8 +52,6 @@ function Map() {
       features,
       srcEvent: { offsetX, offsetY, target },
     } = event;
-
-    console.log(event, "event");
 
     const hoveredFeature = features && features[0];
 

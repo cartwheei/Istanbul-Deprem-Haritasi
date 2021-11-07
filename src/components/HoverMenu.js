@@ -2,7 +2,6 @@ import React from "react";
 import "./HoverMenu.css";
 
 const HoverMenu = ({ hoverInfo }) => {
-  console.log(hoverInfo, "hoverinfo");
   return (
     <div className="tooltip" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
       <div>{hoverInfo.feature.properties.adi}</div>

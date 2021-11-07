@@ -6,12 +6,8 @@ import "./Pins.css";
 const Pins = ({ earthQuake, setEarthQuake }) => {
   const [popupInfo, setPopupInfo] = useState(true);
 
-  console.log(earthQuake, "asd");
-
   const changePopupInfo = () => {
     setPopupInfo(!popupInfo);
-
-    console.log(popupInfo, "popopinfo");
   };
 
   const changePopup = () => {
