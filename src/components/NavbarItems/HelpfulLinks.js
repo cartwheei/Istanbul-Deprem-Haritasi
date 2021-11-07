@@ -1,6 +1,6 @@
 import { React } from "react";
 import { Accordion, Button } from "react-bootstrap";
-import * as IoIcons from "react-icons/io";
+import * as BsIcons from "react-icons/bs";
 
 import "./HelpfulLinks.css";
 
@@ -9,7 +9,7 @@ function HelpfulLinks() {
     <Accordion.Item eventKey="5">
       <Accordion.Header>
         <div className="accordion-header-desc">
-          <IoIcons.IoIosContact />
+          <BsIcons.BsBookFill />
           Kaynakça
         </div>
       </Accordion.Header>
