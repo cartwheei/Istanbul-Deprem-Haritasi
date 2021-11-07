@@ -34,8 +34,7 @@ function Map() {
     left: 0,
     padding: "10px",
   };
-  const data_url =
-    "https://raw.githubusercontent.com/cartwheei/Istanbul-Deprem-Haritasi/master/public/anadolu_projects.json";
+  const data_url = process.env.REACT_APP_JSON;
 
   const [viewport, setViewport] = useState({
     width: "100vw",
