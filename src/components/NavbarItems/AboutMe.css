@@ -5,12 +5,16 @@
 }
 
 .about-me-icon {
-  width: 150%;
-  height: 150%;
+  width: auto;
+  height: 4em;
   color: gray;
 }
 
-@media only screen and (max-width: 600px) {
+.about-me-icon:hover {
+  color: black;
+}
+
+/* @media only screen and (max-width: 600px) {
   .about-me-icon {
     width: 6vw;
     height: 6vh;
@@ -22,4 +26,4 @@
     width: 5vw;
     height: 5vh;
   }
-}
+} */

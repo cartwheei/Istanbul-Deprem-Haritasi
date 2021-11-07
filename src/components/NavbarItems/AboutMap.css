@@ -1,6 +1,6 @@
 .ibb-map-description {
-  text-align: justify;
-  font-size: 2.2vh;
+  text-align: left;
+  font-size: 2vh;
 }
 
 @media only screen and (max-width: 600px) {
