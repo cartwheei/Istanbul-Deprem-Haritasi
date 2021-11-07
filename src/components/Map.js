@@ -26,6 +26,12 @@ import {
 import { geojson } from "./anadolu_data";
 import "./Map.css";
 
+import mapboxgl from "mapbox-gl";
+
+mapboxgl.workerClass =
+  // eslint-disable-next-line import/no-webpack-loader-syntax
+  require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+
 require("dotenv").config();
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOXGL_TOKEN;
 
