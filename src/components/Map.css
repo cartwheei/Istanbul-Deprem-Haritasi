@@ -61,4 +61,6 @@
 .map-control > * {
   margin-top: 5px;
   position: relative !important;
+  display: grid;
+  place-items: center;
 }
