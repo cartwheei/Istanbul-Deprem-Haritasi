@@ -9,7 +9,7 @@
 
 .collapse-menu-button {
   position: absolute;
-  top: 35px;
+  top: 30px;
   left: 35px;
   width: 80px;
   height: 50px;
@@ -17,15 +17,14 @@
   border-color: white;
 }
 
-.collapse-menu-button:hover {
-  border-color: white;
+.mapboxgl-ctrl-top-right {
+  width: 30px;
+  height: auto;
+  top: 20px;
 }
 
-@media only screen and (max-width: 600px) {
-  .collapse-menu-button {
-    top: 40px;
-    left: 10px;
-  }
+.collapse-menu-button:hover {
+  border-color: white;
 }
 
 .collapse-menu-button-span {
@@ -47,12 +46,6 @@
 
 .vis {
   visibility: hidden;
-}
-
-.mapboxgl-ctrl-top-right {
-  width: 10vw;
-  height: 2vh;
-  top: 3.5vh;
 }
 
 .map-control {
