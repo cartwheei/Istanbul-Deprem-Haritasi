@@ -7,10 +7,10 @@ function AboutMap() {
   return (
     <Accordion.Item eventKey="1">
       <Accordion.Header>
-        <span>
+        <div className="accordion-header-desc">
           <BsIcons.BsFillMapFill />
           Harita Hakkında
-        </span>
+        </div>
       </Accordion.Header>
       <Accordion.Body>
         <div>

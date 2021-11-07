@@ -1,15 +1,9 @@
-import { React, useState, useEffect } from "react";
+import { React } from "react";
 import { Accordion } from "react-bootstrap";
-import * as IoIcons from "react-icons/io";
+import * as RiIcons from "react-icons/ri";
 import { Button } from "react-bootstrap";
 
 function LastEarthquakes(props) {
-  const [earthQuake, setEarthQuake] = useState([]);
-
-  useEffect(() => {
-    requestEarthQuake();
-  }, []);
-
   async function requestEarthQuake() {
     let today = new Date();
     let date =
@@ -20,33 +14,45 @@ function LastEarthquakes(props) {
       today.getDate();
     const res = await fetch(
       `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2021-01-02&endtime=${date}
-      &minlatitude=40.065460682065535&maxlatitude=42.54093947168063&
-      minlongitude=26.553955078125&maxlongitude=30.937499999999996`
+      &minlatitude=40.165460682065535&maxlatitude=42.14093947168063&
+      minlongitude=26.153955078125&maxlongitude=30.147499999999996&limit=1`
     );
     const json = await res.json();
 
-    setEarthQuake(json);
+    props.onSelectEarthquake(
+      json.features[0].geometry.coordinates[0],
+      json.features[0].geometry.coordinates[1]
+    );
 
-    console.log(earthQuake);
+    props.setEarthQuake({
+      latitude: json.features[0].geometry.coordinates[1],
+      longitude: json.features[0].geometry.coordinates[0],
+      id: json.features[0].id,
+      detail: json.features[0].properties.detail,
+      time: json.features[0].properties.time,
+      mag: json.features[0].properties.mag,
+      title: json.features[0].properties.title,
+    });
   }
 
   return (
     <Accordion.Item eventKey="2">
       <Accordion.Header>
-        <span>
-          <IoIcons.IoIosContact />
+        <div className="accordion-header-desc">
+          <RiIcons.RiEarthquakeFill />
           Son Depremler
-        </span>
+        </div>
       </Accordion.Header>
       <Accordion.Body>
-        <Button
-          className="helpful-link-button"
-          variant="secondary"
-          onClick={requestEarthQuake}
-          target="_blank"
-        >
-          <span className="helpful-link-button">Son Büyük Depremler</span>
-        </Button>
+        <div className="helpful-links">
+          <Button
+            className="helpful-link-button"
+            variant="secondary"
+            onClick={requestEarthQuake}
+          >
+            <span className="helpful-link-button">Son Büyük Depremler</span>
+          </Button>
+        </div>
       </Accordion.Body>
     </Accordion.Item>
   );

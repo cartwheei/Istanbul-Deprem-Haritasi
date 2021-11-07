@@ -10,7 +10,12 @@ import HelpfulLinks from "./NavbarItems/HelpfulLinks";
 
 import "./Navbar.css";
 
-function Navbar({ setSidebarState, sidebar , onSelectEarthquake, earthQuakeBoolean }) {
+function Navbar({
+  setSidebarState,
+  sidebar,
+  onSelectEarthquake,
+  setEarthQuake,
+}) {
   const showSidebar = () => {
     setSidebarState(!sidebar);
   };
@@ -21,13 +26,16 @@ function Navbar({ setSidebarState, sidebar , onSelectEarthquake, earthQuakeBoole
   return (
     <IconContext.Provider value={{ color: "" }}>
       <div className={"nav-menu active"}>
-        <Button className="navbar-toggle" onClick={showSidebar}>
+        <Button className="navbar-toggle close-button" onClick={showSidebar}>
           <AiIcons.AiOutlineClose />
         </Button>
         <Accordion className="nav-menu-accordion" defaultActiveKey="0">
           <AboutMap />
           <HelpfulLinks />
-          <LastEarthquakes onSelectEarthquake={onSelectEarthquake} earthQuakeBoolean={earthQuakeBoolean}/>
+          <LastEarthquakes
+            onSelectEarthquake={onSelectEarthquake}
+            setEarthQuake={setEarthQuake}
+          />
           <AssemblyArea />
           <AboutMe />
         </Accordion>

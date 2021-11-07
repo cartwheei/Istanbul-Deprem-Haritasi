@@ -8,10 +8,10 @@ function HelpfulLinks() {
   return (
     <Accordion.Item eventKey="5">
       <Accordion.Header>
-        <span>
+        <div className="accordion-header-desc">
           <IoIcons.IoIosContact />
           Kaynakça
-        </span>
+        </div>
       </Accordion.Header>
       <Accordion.Body>
         <div className="helpful-links">

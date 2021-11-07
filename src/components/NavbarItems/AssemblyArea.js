@@ -8,10 +8,10 @@ function AssemblyArea() {
   return (
     <Accordion.Item eventKey="3">
       <Accordion.Header>
-        <span>
+        <div className="accordion-header-desc">
           <IoIcons.IoIosPeople />
           Toplanma Alanları
-        </span>
+        </div>
       </Accordion.Header>
       <Accordion.Body>
         <div className="helpful-links">
