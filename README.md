@@ -15,5 +15,5 @@ This project was created by ground survey analysis of Istanbul Metropolitan Muni
 
 USGS Earthquake api was used. (https://earthquake.usgs.gov/fdsnws/event/1/)
 
-Lived on here ; 
+Live on here ; 
 https://cartwheei.github.io/Istanbul-Deprem-Haritasi/
