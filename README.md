@@ -14,3 +14,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 This project was created by ground survey analysis of Istanbul Metropolitan Municipality.
 
 USGS Earthquake api was used. (https://earthquake.usgs.gov/fdsnws/event/1/)
+
+Lived on here ; 
+https://cartwheei.github.io/Istanbul-Deprem-Haritasi/
