@@ -11,27 +11,28 @@ const EarthQuakeInfo = ({ earthQuake }) => {
   return (
     <div className="earthQuakeInfo">
       <table>
-        <tr>
-          <th>Adres:</th>
-          <td>{earthQuake.title}</td>
-        </tr>
-
-        <tr>
-          <th>Tarih:</th>
-          <td>{`${day}/${month}/${year}`}</td>
-        </tr>
-        <tr>
-          <th>Şiddet:</th>
-          <td>{earthQuake.mag}</td>
-        </tr>
-        <tr>
-          <th>Enlem:</th>
-          <td>{earthQuake.latitude}</td>
-        </tr>
-        <tr>
-          <th>Boylam:</th>
-          <td>{earthQuake.longitude}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <th>Adres:</th>
+            <td>{earthQuake.title}</td>
+          </tr>
+          <tr>
+            <th>Tarih:</th>
+            <td>{`${day}/${month}/${year}`}</td>
+          </tr>
+          <tr>
+            <th>Büyüklük:</th>
+            <td>{earthQuake.mag}</td>
+          </tr>
+          <tr>
+            <th>Enlem:</th>
+            <td>{earthQuake.latitude}</td>
+          </tr>
+          <tr>
+            <th>Boylam:</th>
+            <td>{earthQuake.longitude}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );
