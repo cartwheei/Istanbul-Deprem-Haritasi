@@ -142,7 +142,7 @@ function Map() {
           <Layer {...anadolu_geojson_polygon} />
         </Source>
 
-        {hoverInfo && <HoverMenu hoverInfo={hoverInfo} />}
+        {/*{hoverInfo && <HoverMenu hoverInfo={hoverInfo} />}*/}
         <Geocoder
           className="geocoder"
           mapRef={mapRef}
@@ -168,7 +168,8 @@ function Map() {
       >
         <GiIcons.GiHamburgerMenu className="collapse-menu-button-span-svg" />
       </Button>
-      <IbbLegend />
+      {/*<IbbLegend />
+      />*/}
       <Legend />
       {sidebar && (
         <Navbar

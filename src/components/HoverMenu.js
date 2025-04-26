@@ -6,7 +6,7 @@ const HoverMenu = ({ hoverInfo }) => {
     <div className="tooltip" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
       <div>{hoverInfo.feature.properties.adi}</div>
       <br />
-      <div className="tooltip-properties">
+      {/*<div className="tooltip-properties">
         <div className="tooltip-properties-human">
           <div>Can Kaybı :{hoverInfo.feature.properties.can_kaybi}</div>
           <div>Ağır Yaralı :{hoverInfo.feature.properties.agir_yarali}</div>
@@ -37,7 +37,7 @@ const HoverMenu = ({ hoverInfo }) => {
             Hafif Hasarlı Bina :{hoverInfo.feature.properties.bina_hafif_hasar}
           </div>
         </div>
-      </div>
+      </div>*/}
     </div>
   );
 };
