@@ -42,11 +42,6 @@
   }
 }
 
-.leaflet-container {
-  width: 100wh;
-  height: 100vh;
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 * {

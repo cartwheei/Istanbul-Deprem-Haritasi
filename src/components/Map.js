@@ -45,13 +45,14 @@ function Map() {
 
   const [viewport, setViewport] = useState({
     width: "100vw",
-    height: "100vh",
+    height: "100dvh",
     overflow: "hidden",
     latitude: 40.954492756949186,
     longitude: 29.266891479492188,
     zoom: 10,
   });
 
+  // eslint-disable-next-line no-unused-vars
   const [hoverInfo, setHoverInfo] = useState(null);
 
   const onHover = useCallback((event) => {
@@ -130,7 +131,7 @@ function Map() {
         interactiveLayerIds={["alan"]}
         onHover={onHover}
         width="100vw"
-        height="100vh"
+        height="100dvh"
       >
         {earthQuake.id && (
           <Pins earthQuake={earthQuake} setEarthQuake={setEarthQuake} />
