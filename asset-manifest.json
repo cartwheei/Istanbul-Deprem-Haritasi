@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Istanbul-Deprem-Haritasi/static/css/main.7dcc1a08.chunk.css",
-    "main.js": "/Istanbul-Deprem-Haritasi/static/js/main.e3290c3c.chunk.js",
-    "main.js.map": "/Istanbul-Deprem-Haritasi/static/js/main.e3290c3c.chunk.js.map",
+    "main.js": "/Istanbul-Deprem-Haritasi/static/js/main.1d3b95fc.chunk.js",
+    "main.js.map": "/Istanbul-Deprem-Haritasi/static/js/main.1d3b95fc.chunk.js.map",
     "runtime-main.js": "/Istanbul-Deprem-Haritasi/static/js/runtime-main.db9f1783.js",
     "runtime-main.js.map": "/Istanbul-Deprem-Haritasi/static/js/runtime-main.db9f1783.js.map",
     "static/css/2.c1e694af.chunk.css": "/Istanbul-Deprem-Haritasi/static/css/2.c1e694af.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.c1e694af.chunk.css",
     "static/js/2.75eb78a7.chunk.js",
     "static/css/main.7dcc1a08.chunk.css",
-    "static/js/main.e3290c3c.chunk.js"
+    "static/js/main.1d3b95fc.chunk.js"
   ]
 }
