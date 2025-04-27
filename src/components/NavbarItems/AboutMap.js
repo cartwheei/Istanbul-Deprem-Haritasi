@@ -21,10 +21,6 @@ function AboutMap() {
             sonrası üretilen harita, tekrar projekte edilerek uygulama
             oluşturulmuştur.
           </p>
-          <p className="ibb-map-description">
-            Harita üzerinde gezinerek 7.5 şiddetindeki deprem senaryosundaki
-            olası can ve mal kayıpları görüntülenebilir.
-          </p>
         </div>
       </Accordion.Body>
     </Accordion.Item>
