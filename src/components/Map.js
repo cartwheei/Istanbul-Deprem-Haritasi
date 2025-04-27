@@ -13,10 +13,13 @@ import { Button } from "react-bootstrap";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import Geocoder from "react-map-gl-geocoder";
 import Legend from "./Legend";
+// eslint-disable-next-line no-unused-vars
 import IbbLegend from "./IbbLegend";
 import Navbar from "./Navbar";
 import Pins from "./Pins";
 import * as GiIcons from "react-icons/gi";
+import * as FaIcons from "react-icons/fa";
+// eslint-disable-next-line no-unused-vars
 import HoverMenu from "./HoverMenu";
 import {
   anadolu_geojson_line,
@@ -43,14 +46,35 @@ function Map() {
     padding: "10px",
   };
 
+  // İstanbul, Bursa ve Tekirdağ için sınırlar
+  const maxBounds = [
+    [26.5, 39.8], // Güneybatı köşesi [lng, lat] - Tekirdağ'ın batısı ve Bursa'nın güneyi
+    [30.8, 41.8], // Kuzeydoğu köşesi [lng, lat] - İstanbul'un doğusu ve kuzey kıyısı
+  ];
+
+  // Başlangıç ayarları - sabit referans için
+  const initialViewport = {
+    latitude: 40.954492756949186,
+    longitude: 29.266891479492188,
+    zoom: 10,
+  };
+
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100dvh",
     overflow: "hidden",
-    latitude: 40.954492756949186,
-    longitude: 29.266891479492188,
-    zoom: 10,
+    ...initialViewport,
   });
+
+  // Haritayı başlangıç konumuna döndürme fonksiyonu
+  const resetMap = useCallback(() => {
+    setViewport({
+      ...viewport,
+      ...initialViewport,
+      transitionInterpolator: new FlyToInterpolator({ speed: 1.2 }),
+      transitionDuration: "auto",
+    });
+  }, [viewport]);
 
   // eslint-disable-next-line no-unused-vars
   const [hoverInfo, setHoverInfo] = useState(null);
@@ -132,6 +156,8 @@ function Map() {
         onHover={onHover}
         width="100vw"
         height="100dvh"
+        minZoom={8}
+        maxBounds={maxBounds}
       >
         {earthQuake.id && (
           <Pins earthQuake={earthQuake} setEarthQuake={setEarthQuake} />
@@ -156,6 +182,13 @@ function Map() {
           <GeolocateControl className="geolocateStyle" />
           <FullscreenControl className="fullscreenControlStyle" />
           <NavigationControl className="navStyle" />
+          <Button
+            onClick={resetMap}
+            className="reset-map-button"
+            active={false}
+          >
+            <FaIcons.FaGlobe />
+          </Button>
         </div>
         <div style={scaleControlStyle}>
           <ScaleControl />

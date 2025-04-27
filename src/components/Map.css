@@ -31,6 +31,40 @@ body {
   border-color: white;
 }
 
+.reset-map-button {
+  margin-top: 5px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white !important;
+  border-color: #ddd !important;
+  color: #333 !important;
+  box-shadow: none !important;
+}
+
+.reset-map-button:hover {
+  background-color: #f8f8f8 !important;
+  border-color: #ccc !important;
+  color: #666 !important;
+}
+
+.reset-map-button:active,
+.reset-map-button:focus,
+.reset-map-button.active {
+  background-color: white !important;
+  border-color: #ddd !important;
+  color: #333 !important;
+  box-shadow: none !important;
+}
+
+.reset-map-button svg {
+  width: 18px;
+  height: 18px;
+}
+
 .mapboxgl-ctrl-top-right {
   width: 30px;
   height: auto;
